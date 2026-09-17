@@ -1,0 +1,138 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  FIELD_WORKER
+  ADMIN
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TaskStatus {
+  ASSIGNED
+  ACCEPTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum PhotoType {
+  BEFORE_SERVICE
+  AFTER_SERVICE
+  ATTACHMENT
+}
+
+model User {
+  id           String         @id @default(uuid())
+  name         String
+  email        String         @unique
+  passwordHash String
+  role         Role           @default(FIELD_WORKER)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  assignedTasks Task[]        @relation("AssignedTasks")
+  notes         TaskNote[]
+  photos        TaskPhoto[]
+  locations     Location[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+model Task {
+  id            String      @id @default(uuid())
+  title         String
+  description   String
+  customerName  String
+  customerPhone String
+  address       String
+  latitude      Float
+  longitude     Float
+  priority      Priority    @default(MEDIUM)
+  status        TaskStatus  @default(ASSIGNED)
+  scheduledAt   DateTime
+  assignedToId  String?
+  assignedTo    User?       @relation("AssignedTasks", fields: [assignedToId], references: [id], onDelete: SetNull)
+  version       Int         @default(1)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  notes         TaskNote[]
+  photos        TaskPhoto[]
+  locations     Location[]
+
+  @@index([status])
+  @@index([priority])
+  @@index([assignedToId])
+  @@map("tasks")
+}
+
+model TaskNote {
+  id        String   @id @default(uuid())
+  taskId    String
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([taskId])
+  @@map("task_notes")
+}
+
+model TaskPhoto {
+  id        String    @id @default(uuid())
+  taskId    String
+  task      Task      @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  url       String
+  type      PhotoType @default(ATTACHMENT)
+  createdAt DateTime  @default(now())
+
+  @@index([taskId])
+  @@map("task_photos")
+}
+
+model Location {
+  id        String   @id @default(uuid())
+  taskId    String?
+  task      Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  latitude  Float
+  longitude Float
+  accuracy  Float    @default(0.0)
+  timestamp DateTime @default(now())
+
+  @@index([taskId])
+  @@index([userId])
+  @@map("locations")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  type      String   @default("SYSTEM")
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("notifications")
+}
