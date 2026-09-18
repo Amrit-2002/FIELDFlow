@@ -10,3 +10,4 @@ router.get('/', NotificationController.getNotifications);
 router.patch('/:id/read', NotificationController.markAsRead);
 
 export default router;
+

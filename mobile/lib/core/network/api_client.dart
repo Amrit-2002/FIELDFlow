@@ -149,3 +149,4 @@ class ApiClient {
     return NetworkException(message: e.message ?? 'Network error occurred');
   }
 }
+

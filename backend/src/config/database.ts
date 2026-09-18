@@ -29,3 +29,4 @@ export const connectDatabase = async (): Promise<void> => {
 export const disconnectDatabase = async (): Promise<void> => {
   await prisma.$disconnect();
 };
+

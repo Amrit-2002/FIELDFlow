@@ -30,3 +30,4 @@ startServer().catch((err) => {
   logger.error('Failed to start server', { error: err.message, stack: err.stack });
   process.exit(1);
 });
+

@@ -79,3 +79,4 @@ class AiAssistantBloc extends Bloc<AiAssistantEvent, AiAssistantState> {
     emit(AiAssistantInitial());
   }
 }
+

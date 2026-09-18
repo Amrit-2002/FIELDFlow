@@ -44,3 +44,4 @@ class LocalNotificationService {
     await _notificationsPlugin.show(id, title, body, notificationDetails, payload: payload);
   }
 }
+

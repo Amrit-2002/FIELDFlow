@@ -45,3 +45,4 @@ describe('TaskService - Status Transition Unit Tests', () => {
     expect(() => TaskService.validateTransition(TaskStatus.IN_PROGRESS, TaskStatus.IN_PROGRESS)).not.toThrow();
   });
 });
+

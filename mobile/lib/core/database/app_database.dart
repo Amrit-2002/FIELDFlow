@@ -35,3 +35,4 @@ class AppDatabase extends _$AppDatabase {
     return AppDatabase(executor);
   }
 }
+

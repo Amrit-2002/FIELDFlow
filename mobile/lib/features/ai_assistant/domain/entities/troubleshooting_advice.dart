@@ -20,3 +20,4 @@ class TroubleshootingAdvice extends Equatable {
   @override
   List<Object?> get props => [query, possibleCauses, recommendedChecks, safetyNotes, timestamp, source];
 }
+

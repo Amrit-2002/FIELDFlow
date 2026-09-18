@@ -137,3 +137,4 @@ class Task extends Equatable {
         assignedToId,
       ];
 }
+

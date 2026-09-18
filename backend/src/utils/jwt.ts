@@ -41,3 +41,4 @@ export const verifyRefreshToken = (token: string): TokenPayload => {
     throw AppError.unauthorized('Invalid refresh token', 'INVALID_REFRESH_TOKEN');
   }
 };
+

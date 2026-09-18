@@ -15,3 +15,4 @@ export const batchSyncSchema = z.object({
 
 export type SyncOperationItem = z.infer<typeof syncOperationSchema>;
 export type BatchSyncInput = z.infer<typeof batchSyncSchema>;
+

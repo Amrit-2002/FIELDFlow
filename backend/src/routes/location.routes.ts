@@ -12,3 +12,4 @@ router.get('/', LocationController.getLocations);
 router.post('/', validateBody(recordLocationSchema), LocationController.recordLocation);
 
 export default router;
+

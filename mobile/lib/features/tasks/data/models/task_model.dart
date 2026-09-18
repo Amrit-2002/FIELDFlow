@@ -110,3 +110,4 @@ class TaskModel extends Task {
     };
   }
 }
+

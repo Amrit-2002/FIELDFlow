@@ -9,3 +9,4 @@ class LogoutUseCase {
     await _repository.logout();
   }
 }
+

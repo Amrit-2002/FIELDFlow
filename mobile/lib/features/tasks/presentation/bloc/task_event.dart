@@ -45,3 +45,4 @@ class FilterByPriority extends TaskEvent {
 }
 
 class RefreshTasks extends TaskEvent {}
+

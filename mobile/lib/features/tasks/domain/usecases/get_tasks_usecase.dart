@@ -16,3 +16,4 @@ class GetTasksUseCase {
     await _repository.syncRemoteTasks();
   }
 }
+

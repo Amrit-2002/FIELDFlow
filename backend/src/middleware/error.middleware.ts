@@ -27,3 +27,4 @@ export const errorHandler = (err: Error, req: Request, res: Response, next: Next
   const message = process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message;
   sendError(res, 500, 'INTERNAL_SERVER_ERROR', message);
 };
+

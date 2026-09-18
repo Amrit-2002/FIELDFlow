@@ -214,3 +214,4 @@ Returns service uptime and availability status.
   "message": "Service is healthy"
 }
 ```
+

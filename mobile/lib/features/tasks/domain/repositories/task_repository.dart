@@ -21,3 +21,4 @@ abstract class TaskRepository {
     Map<String, dynamic>? serverData,
   });
 }
+

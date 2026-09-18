@@ -51,3 +51,4 @@ class SyncFailure extends Failure {
 class ValidationFailure extends Failure {
   const ValidationFailure({required super.message, super.code = 'VALIDATION_ERROR'});
 }
+

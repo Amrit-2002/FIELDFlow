@@ -79,3 +79,4 @@ backend/src/
 - **Centralized Error Handling**: Unhandled exceptions are intercepted and converted into standardized error payloads with HTTP status codes.
 - **Atomic Operations**: Status updates and version increments execute within database transactions.
 - **No Stack Traces in Production**: Security hardening ensures system internals are never exposed.
+

@@ -10,3 +10,4 @@ final appLogger = Logger(
     dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
   ),
 );
+

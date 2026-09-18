@@ -10,3 +10,4 @@ class LoginUseCase {
     return await _repository.login(email: email, password: password);
   }
 }
+

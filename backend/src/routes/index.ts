@@ -21,3 +21,4 @@ router.use('/notifications', notificationRoutes);
 router.use('/health', healthRoutes);
 
 export default router;
+

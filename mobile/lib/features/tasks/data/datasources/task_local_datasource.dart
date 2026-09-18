@@ -126,3 +126,4 @@ class TaskLocalDataSourceImpl implements TaskLocalDataSource {
     await (_db.update(_db.tasksTable)..where((tbl) => tbl.id.equals(id))).write(companion);
   }
 }
+

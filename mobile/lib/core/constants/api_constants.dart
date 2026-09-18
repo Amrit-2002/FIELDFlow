@@ -56,3 +56,4 @@ class ApiConstants {
   // Health
   static const String health = '/health';
 }
+

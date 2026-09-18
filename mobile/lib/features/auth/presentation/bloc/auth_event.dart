@@ -20,3 +20,4 @@ class LoginSubmitted extends AuthEvent {
 }
 
 class LogoutRequested extends AuthEvent {}
+

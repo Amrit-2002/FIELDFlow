@@ -1,6 +1,8 @@
+# field_flow
 # FIELDFlow
 ### Offline-First Field Service Management Platform
 
+A new Flutter project.
 [![CI Pipeline](https://github.com/amrit/fieldflow/actions/workflows/ci.yml/badge.svg)](https://github.com/amrit/fieldflow/actions)
 [![Flutter](https://img.shields.io/badge/Flutter-3.27+-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.2+-0175C2?logo=dart&logoColor=white)](https://dart.dev)
@@ -10,16 +12,25 @@
 [![Prisma](https://img.shields.io/badge/Prisma-5.14+-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Getting Started
 <p align="center">
   <img src="screenshots/preview.png" alt="FIELDFlow Mobile App Preview" width="800"/>
 </p>
 
+This project is a starting point for a Flutter application.
 **FIELDFlow** is an enterprise-grade mobile application and REST backend platform built for field service technicians, installation engineers, and maintenance personnel. Designed from the ground up as **offline-first**, technicians can accept tasks, transition job statuses, document diagnostic notes, record GPS location stamps, and capture photos in underground equipment rooms, basements, or remote job sites with zero cellular connectivity.
 
+A few resources to get you started if this is your first Flutter project:
 Once connectivity returns, an intelligent **Background Synchronization Engine** automatically dispatches queued mutations using **exponential backoff**, isolates errors, and detects optimistic concurrency conflicts (**HTTP 409 Conflict**), providing technicians with a visual reconciliation interface rather than silently overwriting server updates.
 
+- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
+- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
 ---
 
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 ## 🌟 Key Features
 
 - 📱 **Offline-First Architecture**: 100% of UI reads and writes interact directly with a reactive local SQLite database (powered by Drift). The app never blocks on network connectivity.

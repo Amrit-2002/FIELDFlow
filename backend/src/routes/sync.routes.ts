@@ -11,3 +11,4 @@ router.use(authenticate);
 router.post('/', validateBody(batchSyncSchema), SyncController.sync);
 
 export default router;
+

@@ -103,3 +103,4 @@ Permanent errors (e.g., entity deleted on server) are marked `FAILED` immediatel
 5. The technician can choose:
    - **Accept Server Version**: Replaces local state with remote changes.
    - **Keep My Changes**: Overrides server version using the incremented version token.
+

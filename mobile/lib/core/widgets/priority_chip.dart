@@ -59,3 +59,4 @@ class PriorityChip extends StatelessWidget {
     );
   }
 }
+

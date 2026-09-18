@@ -127,3 +127,4 @@ Future<void> initServiceLocator() async {
 
   sl.registerFactory(() => AiAssistantBloc(repository: sl<AiAssistantRepository>()));
 }
+

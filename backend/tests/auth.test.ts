@@ -66,3 +66,4 @@ describe('Authentication Endpoints', () => {
     expect(refreshRes.body.data).toHaveProperty('refreshToken');
   });
 });
+

@@ -5,3 +5,4 @@ class StorageKeys {
   static const String activeServerUrl = 'fieldflow_server_url';
   static const String lastSyncTimestamp = 'fieldflow_last_sync_timestamp';
 }
+

@@ -8,3 +8,4 @@ export const recordLocationSchema = z.object({
 });
 
 export type RecordLocationInput = z.infer<typeof recordLocationSchema>;
+

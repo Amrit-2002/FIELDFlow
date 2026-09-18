@@ -12,3 +12,4 @@ export class HealthController {
     }, 'Service is healthy');
   }
 }
+

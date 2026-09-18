@@ -42,3 +42,4 @@ void main() {
     expect(find.byIcon(Icons.sync), findsOneWidget);
   });
 }
+

@@ -11,3 +11,4 @@ router.get('/', PhotoController.getPhotos);
 router.post('/', upload.single('photo'), PhotoController.uploadPhoto);
 
 export default router;
+

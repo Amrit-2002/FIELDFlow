@@ -67,3 +67,4 @@ class EmptyStateView extends StatelessWidget {
     );
   }
 }
+

@@ -189,3 +189,4 @@ class TaskDetailsBloc extends Bloc<TaskDetailsEvent, TaskDetailsState> {
     return super.close();
   }
 }
+

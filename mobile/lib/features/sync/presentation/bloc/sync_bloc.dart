@@ -120,3 +120,4 @@ class SyncBloc extends Bloc<SyncEvent, SyncState> {
     return super.close();
   }
 }
+

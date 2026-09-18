@@ -71,3 +71,4 @@ enum TaskStatus {
     return allowedTransitions.contains(target);
   }
 }
+

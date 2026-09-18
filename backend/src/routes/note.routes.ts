@@ -12,3 +12,4 @@ router.get('/', NoteController.getNotes);
 router.post('/', validateBody(createNoteSchema), NoteController.createNote);
 
 export default router;
+

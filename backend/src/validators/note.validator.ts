@@ -5,3 +5,4 @@ export const createNoteSchema = z.object({
 });
 
 export type CreateNoteInput = z.infer<typeof createNoteSchema>;
+

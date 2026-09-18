@@ -16,3 +16,4 @@ router.patch('/:id/status', validateBody(updateTaskStatusSchema), TaskController
 router.delete('/:id', TaskController.deleteTask);
 
 export default router;
+
