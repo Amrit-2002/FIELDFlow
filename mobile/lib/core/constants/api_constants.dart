@@ -1,6 +1,5 @@
-import 'dart:io' show Platform;
-import 'dart:io' show Platform, HttpClient;
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 
 class ApiConstants {
   static String? _overrideBaseUrl;
@@ -11,7 +10,7 @@ class ApiConstants {
   static Future<void> resolveBaseUrl() async {
     if (kIsWeb) return;
     try {
-      if (Platform.isAndroid) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
         // 1. Probe 127.0.0.1 (Physical device over USB reverse)
         if (await _probeHost('127.0.0.1', 5000)) {
           _overrideBaseUrl = 'http://127.0.0.1:5000/api/v1';
@@ -38,9 +37,9 @@ class ApiConstants {
 
   static Future<bool> _probeHost(String host, int port) async {
     try {
-      final client = HttpClient()..connectionTimeout = const Duration(milliseconds: 600);
-      final request = await client.getUrl(Uri.parse('http://$host:$port/api/v1/health'));
-      final response = await request.close();
+      final response = await http
+          .get(Uri.parse('http://$host:$port/api/v1/health'))
+          .timeout(const Duration(milliseconds: 600));
       return response.statusCode == 200;
     } catch (_) {
       return false;
@@ -53,12 +52,9 @@ class ApiConstants {
     if (kIsWeb) {
       return 'http://localhost:5000/api/v1';
     }
-    try {
-      if (Platform.isAndroid) {
-        return 'http://10.0.2.2:5000/api/v1';
-        return 'http://127.0.0.1:5000/api/v1';
-      }
-    } catch (_) {}
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return 'http://127.0.0.1:5000/api/v1';
+    }
     return 'http://localhost:5000/api/v1';
   }
 
@@ -68,12 +64,9 @@ class ApiConstants {
     if (kIsWeb) {
       return 'http://localhost:11434';
     }
-    try {
-      if (Platform.isAndroid) {
-        return 'http://10.0.2.2:11434';
-        return 'http://127.0.0.1:11434';
-      }
-    } catch (_) {}
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return 'http://127.0.0.1:11434';
+    }
     return 'http://localhost:11434';
   }
 

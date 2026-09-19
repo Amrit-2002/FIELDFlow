@@ -152,8 +152,6 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<void> syncRemoteTasks() async {
     if (await _networkInfo.isConnected) {
-      final tasks = await _remoteDataSource.getTasks(limit: 100);
-      await _localDataSource.upsertTasks(tasks);
       try {
         final tasks = await _remoteDataSource.getTasks(limit: 100);
         await _localDataSource.upsertTasks(tasks);
