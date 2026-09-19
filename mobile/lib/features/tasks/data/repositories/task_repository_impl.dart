@@ -5,6 +5,7 @@ import '../../../../core/database/app_database.dart';
 import '../../../../core/database/tables/drift_tables.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/network/network_info.dart';
+import '../../../../core/utils/logger.dart';
 import '../../domain/entities/priority.dart';
 import '../../domain/entities/task.dart';
 import '../../domain/entities/task_status.dart';
@@ -153,6 +154,14 @@ class TaskRepositoryImpl implements TaskRepository {
     if (await _networkInfo.isConnected) {
       final tasks = await _remoteDataSource.getTasks(limit: 100);
       await _localDataSource.upsertTasks(tasks);
+      try {
+        final tasks = await _remoteDataSource.getTasks(limit: 100);
+        await _localDataSource.upsertTasks(tasks);
+      } catch (err) {
+        // Offline-first fallback: if backend is unreachable or timed out,
+        // log warning and continue serving cached SQLite tasks smoothly.
+        appLogger.w('Background remote task sync skipped (backend unreachable): $err');
+      }
     }
   }
 
