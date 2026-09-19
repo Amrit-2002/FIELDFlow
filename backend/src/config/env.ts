@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-dotenv.config();
+dotenv.config({ override: true });
 
 const envSchema = z.object({
   PORT: z.string().default('5000').transform((val) => parseInt(val, 10)),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-  DATABASE_URL: z.string().default('postgresql://postgres:postgres@localhost:5432/fieldflow?schema=public'),
+  DATABASE_URL: z.string().default('postgresql://postgres:password@localhost:5432/fieldflow?schema=public'),
   JWT_ACCESS_SECRET: z.string().default('fieldflow_access_token_super_secret_jwt_key_2026'),
   JWT_REFRESH_SECRET: z.string().default('fieldflow_refresh_token_super_secret_jwt_key_2026'),
   JWT_ACCESS_EXPIRATION: z.string().default('15m'),

@@ -39,8 +39,12 @@ local.properties
 .pub-cache/
 .pub/
 /build/
-/coverage/
+/coverage/build/
 mobile/build/
+mobile/android/build/
+**/android/build/
+.gradle/
+**/android/.gradle/
 mobile/.dart_tool/
 
 # Symbolication related
