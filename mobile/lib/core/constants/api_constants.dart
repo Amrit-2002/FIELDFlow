@@ -26,9 +26,9 @@ class ApiConstants {
         }
 
         // 3. Probe LAN IP
-        if (await _probeHost('10.94.127.63', 5000)) {
-          _overrideBaseUrl = 'http://10.94.127.63:5000/api/v1';
-          _overrideOllamaUrl = 'http://10.94.127.63:11434';
+        if (await _probeHost('10.129.47.63', 5000)) {
+          _overrideBaseUrl = 'http://10.129.47.63:5000/api/v1';
+          _overrideOllamaUrl = 'http://10.129.47.63:11434';
           return;
         }
       }
@@ -53,7 +53,7 @@ class ApiConstants {
       return 'http://localhost:5000/api/v1';
     }
     if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://127.0.0.1:5000/api/v1';
+      return 'http://10.0.2.2:5000/api/v1';
     }
     return 'http://localhost:5000/api/v1';
   }
@@ -65,7 +65,7 @@ class ApiConstants {
       return 'http://localhost:11434';
     }
     if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://127.0.0.1:11434';
+      return 'http://10.0.2.2:11434';
     }
     return 'http://localhost:11434';
   }
